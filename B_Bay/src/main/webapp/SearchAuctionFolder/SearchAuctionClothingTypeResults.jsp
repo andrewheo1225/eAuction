@@ -94,11 +94,7 @@
 					filter.append(" where p.itemID = a.auctionID and a.isAvailable = 'Y'");	
 				}
 			}
-			
-			
-			
-			out.print(filter);
-			
+			out.print(filter);			
 			String whereQuery = filter.toString(); 
 			 
 		
