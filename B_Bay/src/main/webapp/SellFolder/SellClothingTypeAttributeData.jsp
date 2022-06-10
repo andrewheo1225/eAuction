@@ -57,8 +57,8 @@ try{
 		String pantType = request.getParameter("pant_type");
 		String pantGender = request.getParameter("pant_gender");
 		String pantColor = request.getParameter("color");
-		String itemDescription = pantType + "," + pantGender + "," + pantColor;
-				
+	
+		a.setHighestBidderID(-1);
 		a.setCurrentBidPrice(initialBidPrice); 
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
@@ -67,9 +67,8 @@ try{
 		    	alert('Successfully created a new auction!');
 		 	 </script>
 		    <% 
-		    i.setDescription(itemDescription);
+		  
 		    int statusForItems = db.createItems(i);
-		   
 			if(statusForItems >0){
 				%>
 			    <script type="text/javascript">
@@ -195,8 +194,8 @@ try{
 		String shirtBrand = request.getParameter("shirt_brand");
 		String shirtColor =request.getParameter("color");
 		
-		String itemDescription = shirtSize + "," + shirtGender + "," + shirtBrand + "," + shirtColor;
 		
+		a.setHighestBidderID(0);
 		a.setCurrentBidPrice(initialBidPrice); 
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
@@ -205,7 +204,7 @@ try{
 		    	alert('Successfully created a new auction!');
 		 	 </script>
 		    <% 
-		    i.setDescription(itemDescription);
+		  
 		    int statusForItems = db.createItems(i);
 		    
 			if(statusForItems >0){
@@ -328,8 +327,9 @@ try{
 		String shoeGender =request.getParameter("shoe_gender");
 		String shoeBrand = request.getParameter("shoe_brand");
 		String shoeColor = request.getParameter("color");
-		String itemDescription = shoeSize + "," + shoeGender + "," + shoeBrand+ "," + shoeColor;
+		
 		a.setCurrentBidPrice(initialBidPrice); 
+		a.setHighestBidderID(0);
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
 			%>
@@ -337,7 +337,7 @@ try{
 		    	alert('Successfully created a new auction!');
 		 	 </script>
 		    <% 
-		    i.setDescription(itemDescription);
+		  
 		    int statusForItems = db.createItems(i);
 			if(statusForItems >0){
 				%>

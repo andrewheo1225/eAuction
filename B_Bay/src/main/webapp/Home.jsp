@@ -30,7 +30,9 @@
 	<br>
 	Your userID is <%
 	HttpSession sess = request.getSession();
-	out.print(sess.getAttribute("userID"));
+	String id=String.valueOf((Integer)sess.getAttribute("userID")); 
+	out.print(id);
+	sess.setAttribute("userID",id);
 	%>
 	<br>
 	
@@ -51,6 +53,10 @@
 	<br>
 	<a href="SellFolder/Sell.jsp">
 		<button>Sell Items</button>
+	</a>
+	<br>
+	<a href="SelfBidsFolder/SelfBid.jsp">
+		<button>Check Self Bids</button>
 	</a>
 	
 	

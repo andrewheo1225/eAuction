@@ -1,7 +1,7 @@
 package com.cs336.pkg;
 
 public class Auction {
-	private int id;
+	private int id,highestBidderID;
 	private String startDate,endDate, isAvailable;
 	private double initialBidPrice, incrementBidPrice, minBid, currentBidPrice;
 	public int getId() {
@@ -51,6 +51,12 @@ public class Auction {
 	}
 	public void setCurrentBidPrice(double currentBidPrice) {
 		this.currentBidPrice = currentBidPrice;
+	}
+	public int getHighestBidderID() {
+		return highestBidderID;
+	}
+	public void setHighestBidderID(int highestBidderID) {
+		this.highestBidderID = highestBidderID;
 	}
 	
 	

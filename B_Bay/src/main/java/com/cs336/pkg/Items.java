@@ -12,12 +12,5 @@ public class Items {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return Description;
-	}
-
-	public void setDescription(String description) {
-		Description = description;
-	}
 	
 }

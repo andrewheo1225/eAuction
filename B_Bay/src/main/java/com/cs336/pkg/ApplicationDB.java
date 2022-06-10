@@ -37,15 +37,16 @@ public class ApplicationDB {
 	    try{  
 	        Connection con=getConnection();  
 	        java.sql.PreparedStatement ps=con.prepareStatement(  
-	        		"INSERT INTO auction(startDate, endDate, initialBidPrice, incrementBidPrice, minBid,currentBidPrice,isAvailable)"
-	        				+ "VALUES (?, ?, ?, ?, ?,?,?)");
+	        		"INSERT INTO auction(startDate, endDate, initialBidPrice, incrementBidPrice, minBid,currentBidPrice,isAvailable,highestBidder)"
+	        				+ "VALUES (?, ?, ?, ?, ?,?,?,?)");
 	        ps.setString(1,a.getStartDate());  
 	        ps.setString(2,a.getEndDate());  
 	        ps.setDouble(3,a.getInitialBidPrice());  
 	        ps.setDouble(4,a.getIncrementBidPrice());  
 	        ps.setDouble(5,a.getMinBid());  
 	        ps.setDouble(6,a.getCurrentBidPrice());  
-	        ps.setString(7,a.getIsAvailable());  
+	        ps.setString(7,a.getIsAvailable());
+	        ps.setInt(8,a.getHighestBidderID());
 	        status=ps.executeUpdate(); 
 	        con.close();
 	    }catch(Exception e){
@@ -59,9 +60,8 @@ public class ApplicationDB {
 	    try{  
 	        Connection con=getConnection();  
 	        java.sql.PreparedStatement ps=con.prepareStatement(  
-	        		"INSERT INTO items(description)"
-	        				+ "VALUES (?)");
-	        ps.setString(1,i.getDescription());
+	        		"INSERT INTO items() values()");
+	      
 	        status=ps.executeUpdate(); 
 	        con.close();
 	    }catch(Exception e){
@@ -143,9 +143,7 @@ public class ApplicationDB {
 	        java.sql.PreparedStatement ps=con.prepareStatement(  
 	        		"INSERT INTO has(userID)"
 	        				+ "VALUES (?)");
-	        ps.setInt(1,h.getUserID());  
-	       
-
+	        ps.setInt(1,h.getUserID()); 
 	        status=ps.executeUpdate(); 
 	    }catch(Exception e){
 	    	System.out.println(e);
