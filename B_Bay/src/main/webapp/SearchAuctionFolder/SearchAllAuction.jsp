@@ -21,15 +21,9 @@
 		Connection con = db.getConnection();
 		PreparedStatement stmt=con.prepareStatement("SELECT * FROM auction;");
 		ResultSet result=stmt.executeQuery();	
-		
 		HttpSession sess = request.getSession();
-		
-		String idString = String.valueOf(sess.getAttribute("userID")); 
-		
+		String idString = String.valueOf(sess.getAttribute("userID")); 	
 		int id = Integer.parseInt(idString);
-		
-		out.print(id);
-		
 	
 		%>
 		<table border = '1'>
@@ -70,13 +64,18 @@
 									}else{
 										 %><td><%=result.getInt("HighestBidder")%></td><% 
 							}%>
-							<td><%int highbidderID = result.getInt("highestBidder");
-								if(highbidderID == id){
+							<td><%int bidderUserID = result.getInt("userID");
+								if(bidderUserID == id){
+									%><%
 									
 								}else{
-									%><a href=".../BidFolder/Bid.jsp">
-										<button>Bid</button>
-									</a><% 
+									%>
+									
+										<a href=".../BidFolder/Bid.jsp">
+											<button>Bid</button>
+										</a>
+									
+									<% 
 								}
 							%>
 							</td>

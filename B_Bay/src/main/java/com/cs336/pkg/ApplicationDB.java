@@ -37,16 +37,17 @@ public class ApplicationDB {
 	    try{  
 	        Connection con=getConnection();  
 	        java.sql.PreparedStatement ps=con.prepareStatement(  
-	        		"INSERT INTO auction(startDate, endDate, initialBidPrice, incrementBidPrice, minBid,currentBidPrice,isAvailable,highestBidder)"
-	        				+ "VALUES (?, ?, ?, ?, ?,?,?,?)");
-	        ps.setString(1,a.getStartDate());  
-	        ps.setString(2,a.getEndDate());  
-	        ps.setDouble(3,a.getInitialBidPrice());  
-	        ps.setDouble(4,a.getIncrementBidPrice());  
-	        ps.setDouble(5,a.getMinBid());  
-	        ps.setDouble(6,a.getCurrentBidPrice());  
-	        ps.setString(7,a.getIsAvailable());
-	        ps.setInt(8,a.getHighestBidderID());
+	        		"INSERT INTO auction(userID, startDate, endDate, initialBidPrice, incrementBidPrice, minBid,currentBidPrice,isAvailable,highestBidder)"
+	        				+ "VALUES (?, ?,?, ?, ?, ?,?,?,?)");
+	        ps.setInt(1,a.getUserID());
+	        ps.setString(2,a.getStartDate());  
+	        ps.setString(3,a.getEndDate());  
+	        ps.setDouble(4,a.getInitialBidPrice());  
+	        ps.setDouble(5,a.getIncrementBidPrice());  
+	        ps.setDouble(6,a.getMinBid());  
+	        ps.setDouble(7,a.getCurrentBidPrice());  
+	        ps.setString(8,a.getIsAvailable());
+	        ps.setInt(9,a.getHighestBidderID());
 	        status=ps.executeUpdate(); 
 	        con.close();
 	    }catch(Exception e){

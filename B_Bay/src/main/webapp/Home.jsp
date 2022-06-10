@@ -30,7 +30,7 @@
 	<br>
 	Your userID is <%
 	HttpSession sess = request.getSession();
-	String id=String.valueOf((Integer)sess.getAttribute("userID")); 
+	int id=(Integer)sess.getAttribute("userID"); 
 	out.print(id);
 	sess.setAttribute("userID",id);
 	%>

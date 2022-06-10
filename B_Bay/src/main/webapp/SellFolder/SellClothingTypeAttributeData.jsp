@@ -32,8 +32,8 @@ try{
 	
 	String clothingType = (String)session.getAttribute("cloth");
 	HttpSession sess = request.getSession();
-	String var = String.valueOf(sess.getAttribute("userID"));
-	int userID = Integer.parseInt(var);
+	int userID = (Integer)sess.getAttribute("userID");
+	
 	String startDate = request.getParameter("startDate");
 	String endDate = request.getParameter("endDate");
 	double initialBidPrice = Double.valueOf(request.getParameter("initialBidPrice"));
@@ -49,7 +49,10 @@ try{
 	</a>
 	<br>
 	<%
-	
+	out.print(userID);
+	if(userID>0){
+		%><p>hi</p><% 
+	}
 	
 	//for each clothing type you must add into Auction, Items, pant/shirt/shoe, Contains, HAS
 	if(clothingType.equals("Pant")){
@@ -60,6 +63,7 @@ try{
 	
 		a.setHighestBidderID(-1);
 		a.setCurrentBidPrice(initialBidPrice); 
+		a.setUserID(userID);
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
 			%>
@@ -194,8 +198,8 @@ try{
 		String shirtBrand = request.getParameter("shirt_brand");
 		String shirtColor =request.getParameter("color");
 		
-		
-		a.setHighestBidderID(0);
+		a.setUserID(userID);
+		a.setHighestBidderID(-1);
 		a.setCurrentBidPrice(initialBidPrice); 
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
@@ -329,7 +333,8 @@ try{
 		String shoeColor = request.getParameter("color");
 		
 		a.setCurrentBidPrice(initialBidPrice); 
-		a.setHighestBidderID(0);
+		a.setHighestBidderID(-1);
+		a.setUserID(userID);
 		int statusForAuction = db.createAuction(a);
 		if(statusForAuction > 0){
 			%>
