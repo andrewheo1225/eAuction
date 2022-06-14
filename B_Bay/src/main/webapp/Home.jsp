@@ -33,6 +33,12 @@
 	int id=(Integer)sess.getAttribute("userID"); 
 	out.print(id);
 	sess.setAttribute("userID",id);
+	
+	String IDtoString = String.valueOf(id);
+	// Create cookies for first and last names.      
+	Cookie cookie_id = new Cookie("cookie_id",IDtoString );
+	cookie_id.setMaxAge(60*60*24); 
+	response.addCookie( cookie_id );
 	%>
 	<br>
 	
