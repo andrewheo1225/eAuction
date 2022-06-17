@@ -14,7 +14,7 @@
 	<%
 	try {	
 		%>
-		<a href="SearchFilter.jsp">
+		<a href="SearchAuctionFolder/SearchFilter.jsp">
 			<button>Filter Options</button>
 		</a>
 		<% 
@@ -32,11 +32,13 @@
 		String query = "select auctionID from auction where userID = " + id;
 		PreparedStatement stmt1=con.prepareStatement(query);
 		ResultSet result1=stmt1.executeQuery();
-		
+		%><br><% 
 		out.print("Your auction ID are: ");
 		while(result1.next()){
 			out.print(result1.getInt("auctionID") + " ");
 		}
+		%><br><% 
+		out.println("Your userID is: " + id);
 		%>
 		<br>
 		<a href="http://localhost:8080/B_Bay/Home.jsp">
