@@ -61,9 +61,14 @@
 		<button>Sell Items</button>
 	</a>
 	<br>
-	<a href="SelfBidsFolder/SelfBid.jsp">
-		<button>Check Self Bids</button>
+	<a href="YourBidsFolder/YourBids.jsp">
+		<button>Check Your Bids</button>
 	</a>
+	<br>
+	<a href="YourItemsFolder/YourItems.jsp">
+		<button>Your Items</button>
+	</a>
+	
 	
 	
 
