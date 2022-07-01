@@ -48,7 +48,7 @@
 					con1.close();
 		         	session.setAttribute("user", fname);
 		         	session.setAttribute("pass", userPass);
-		         	//session.setAttribute("userID",userID);
+		         
 		    		sess.setAttribute("userID", userID);
 		         	
 					response.sendRedirect("http://localhost:8080/B_Bay/Home.jsp");
