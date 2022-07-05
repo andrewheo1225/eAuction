@@ -41,6 +41,40 @@
 		PreparedStatement updateStud=con1.prepareStatement(query); 
 		updateStud.executeUpdate();
 		
+		
+		
+		//NOT THE BEST CODE BUT TOO LAZY TO MAKE BETTER. cant determine if clothingtype is pant/shirt/shoe so must check each 
+		
+		StringBuilder clothingType = new StringBuilder();
+		PreparedStatement stmt=con1.prepareStatement("select itemID from pant");
+		ResultSet result=stmt.executeQuery();
+		while(result.next()){
+			int itemID = result.getInt("itemID");
+			if(itemID == auctionID){
+				clothingType.append("pant");
+			}
+		}
+		PreparedStatement stmt2=con1.prepareStatement("select itemID from shirt");
+		ResultSet result2=stmt2.executeQuery();
+		while(result2.next()){
+			int itemID1 = result2.getInt("itemID");
+			if(itemID1 == auctionID){
+				clothingType.append("shirt");
+			}
+		}
+		PreparedStatement stmt3=con1.prepareStatement("select itemID from shoe");
+		ResultSet result3=stmt3.executeQuery();
+		while(result3.next()){
+			int itemID3 = result3.getInt("itemID");
+			if(itemID3 == auctionID){
+				clothingType.append("shoe");
+			}
+		}	
+		String clothingTypeToString = String.valueOf(clothingType);
+		String query1 = "update " + clothingTypeToString + " set bidPrice = " + bidInput + " where itemID = " + auctionID + ";";
+		PreparedStatement updateStud1=con1.prepareStatement(query1); 
+		updateStud1.executeUpdate();
+
 		con1.close();
 		%>
 	    <script type="text/javascript">
