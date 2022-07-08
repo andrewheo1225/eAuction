@@ -42,17 +42,7 @@ try{
 	double currentBidPrice = initialBidPrice;
 	ApplicationDB db = new ApplicationDB();	
 	Connection con = db.getConnection();
-	%>
-	<br>
-	<a href="http://localhost:8080/B_Bay/Home.jsp">
-		<button>Go To Home</button>
-	</a>
-	<br>
-	<%
-	out.print(userID);
-	if(userID>0){
-		%><p>hi</p><% 
-	}
+	
 	
 	//for each clothing type you must add into Auction, Items, pant/shirt/shoe, Contains, HAS
 	if(clothingType.equals("Pant")){

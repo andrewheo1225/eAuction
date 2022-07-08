@@ -34,7 +34,7 @@ CREATE TABLE `auction` (
   `isAvailable` varchar(1) DEFAULT NULL,
   `highestBidder` int DEFAULT NULL,
   PRIMARY KEY (`auctionID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `auction` (
 
 LOCK TABLES `auction` WRITE;
 /*!40000 ALTER TABLE `auction` DISABLE KEYS */;
-INSERT INTO `auction` VALUES (1,29,'2022-04-01','2022-06-06',150.02,20.00,130.00,1500.34,'Y',30),(2,30,'2022-01-01','2023-02-23',50.92,25.00,150.00,100.21,'N',29),(3,31,'2022-09-09','2022-10-10',50.00,20.00,25.09,56.76,'Y',30),(4,29,'2022-02-02','2034-09-02',20.21,2.23,120.12,45.00,'N',31),(5,35,'2022-02-02','2024-01-01',56.76,12.32,40.00,102.23,'Y',33),(6,35,'2022-02-02','2032-05-02',142.00,32.00,122.00,123.54,'N',34),(7,32,'2022-02-02','2022-11-11',100.00,100.00,100.00,100.00,'Y',-1),(8,32,'2022-02-02','2022-03-02',150.00,150.00,150.00,150.00,'Y',-1),(9,32,'2024-05-03','2025-02-10',180.00,20.00,180.00,180.00,'Y',-1);
+INSERT INTO `auction` VALUES (1,29,'2022-04-01','2022-06-06',150.02,20.00,130.00,3000.00,'Y',32),(2,30,'2022-01-01','2023-02-23',50.92,25.00,150.00,100.21,'N',29),(3,31,'2022-09-09','2022-10-10',50.00,20.00,25.09,200.00,'Y',32),(4,29,'2022-02-02','2034-09-02',20.21,2.23,120.12,45.00,'N',31),(5,35,'2022-02-02','2024-01-01',56.76,12.32,40.00,102.23,'Y',33),(6,35,'2022-02-02','2032-05-02',142.00,32.00,122.00,123.54,'N',34),(7,32,'2022-02-02','2022-11-11',100.00,100.00,100.00,100.00,'Y',-1),(8,32,'2022-02-02','2022-03-02',150.00,150.00,150.00,150.00,'Y',-1),(9,32,'2024-05-03','2025-02-10',180.00,20.00,180.00,180.00,'Y',-1),(10,32,'2022-02-02','2022-03-02',1500.00,1500.00,1500.00,1500.00,'Y',-1),(11,35,'2022-05-03','2022-06-02',312.00,321.00,312.00,312.00,'Y',-1),(12,35,'2023-04-02','2024-01-01',222.00,222.00,222.00,222.00,'Y',-1);
 /*!40000 ALTER TABLE `auction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +97,7 @@ CREATE TABLE `contains` (
 
 LOCK TABLES `contains` WRITE;
 /*!40000 ALTER TABLE `contains` DISABLE KEYS */;
-INSERT INTO `contains` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
+INSERT INTO `contains` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),(11,11),(12,12);
 /*!40000 ALTER TABLE `contains` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `has` (
   PRIMARY KEY (`itemID`),
   KEY `has_ibfk_1` (`userID`),
   CONSTRAINT `has_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `has` (
 
 LOCK TABLES `has` WRITE;
 /*!40000 ALTER TABLE `has` DISABLE KEYS */;
-INSERT INTO `has` VALUES (1,29),(4,29),(2,30),(3,31),(7,32),(8,32),(9,32),(5,35),(6,35);
+INSERT INTO `has` VALUES (1,29),(4,29),(2,30),(3,31),(7,32),(8,32),(9,32),(10,32),(5,35),(6,35),(11,35),(12,35);
 /*!40000 ALTER TABLE `has` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `itemID` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9);
+INSERT INTO `items` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12);
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +168,7 @@ CREATE TABLE `pant` (
   PRIMARY KEY (`uniqueItemID`),
   KEY `itemID` (`itemID`),
   CONSTRAINT `pant_ibfk_1` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `pant` (
 
 LOCK TABLES `pant` WRITE;
 /*!40000 ALTER TABLE `pant` DISABLE KEYS */;
-INSERT INTO `pant` VALUES (1,4,30,'high waist','female','red',45.00),(3,3,31,'linen','female','white',56.76),(4,7,32,'jean','male','white',100.00);
+INSERT INTO `pant` VALUES (1,4,30,'high waist','female','red',45.00),(3,3,31,'linen','female','white',200.00),(4,7,32,'jean','male','white',100.00),(5,10,33,'Jeans','Transgender','grey',1500.00);
 /*!40000 ALTER TABLE `pant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +199,7 @@ CREATE TABLE `shirt` (
   PRIMARY KEY (`uniqueItemID`),
   KEY `itemID` (`itemID`),
   CONSTRAINT `shirt_ibfk_1` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +208,7 @@ CREATE TABLE `shirt` (
 
 LOCK TABLES `shirt` WRITE;
 /*!40000 ALTER TABLE `shirt` DISABLE KEYS */;
-INSERT INTO `shirt` VALUES (1,2,'medium','male','Nike','blue',100.21),(2,1,'large','female','Off-White','white',1500.34),(3,8,'medium','female','apes','black',150.00),(4,9,'medium','female','nike','white',180.00);
+INSERT INTO `shirt` VALUES (1,2,'medium','male','Nike','blue',100.21),(2,1,'large','female','Off-White','white',3000.00),(3,8,'medium','female','apes','black',150.00),(4,9,'medium','female','nike','white',180.00),(5,12,'extra-large','female','GardenFlower','black',222.00);
 /*!40000 ALTER TABLE `shirt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +230,7 @@ CREATE TABLE `shoe` (
   PRIMARY KEY (`uniqueItemID`),
   KEY `itemID` (`itemID`),
   CONSTRAINT `shoe_ibfk_1` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +239,7 @@ CREATE TABLE `shoe` (
 
 LOCK TABLES `shoe` WRITE;
 /*!40000 ALTER TABLE `shoe` DISABLE KEYS */;
-INSERT INTO `shoe` VALUES (1,5,10.50,'male','Adidas','orange',102.23),(2,6,9.00,'female','Nike','grey',123.54);
+INSERT INTO `shoe` VALUES (1,5,10.50,'male','Adidas','orange',102.23),(2,6,9.00,'female','Nike','grey',123.54),(6,11,9.50,'Male','Adidas','grey',312.00);
 /*!40000 ALTER TABLE `shoe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +259,7 @@ CREATE TABLE `users` (
   `birthday` date DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `userName` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-10 19:51:19
+-- Dump completed on 2022-07-08 18:44:40
