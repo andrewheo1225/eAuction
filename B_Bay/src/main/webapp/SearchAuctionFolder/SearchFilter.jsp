@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost:8080/B_Bay/Home.jsp">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost:8080/B_Bay/AboutFolder/AboutWebsite.jsp">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:8080/B_Bay/AboutFolder/Template/dist/AboutWebsite.jsp">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://github.com/andrewheo1225">Contact</a></li>
                     </ul>
                 </div>
