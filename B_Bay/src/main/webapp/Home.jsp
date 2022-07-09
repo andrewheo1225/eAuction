@@ -54,21 +54,30 @@
                         <h1 class="display-5 fw-bold">Welcome <%=session.getAttribute("user")%></h1>
                         <p class="fs-4">
                         	Your userID is <%
-                        	HttpSession sess = request.getSession();
-							int id=(Integer)sess.getAttribute("userID"); 
-							out.print(id);
-							sess.setAttribute("userID",id);
+                        	
+                        	int userID = 0;
+							Cookie cookie = null;
+					        Cookie[] cookies = null;
+					        cookies = request.getCookies();
+					        
+					        if(cookies != null ) {
+					           for (int i = 0; i < cookies.length; i++) {
+					              cookie = cookies[i];
+					              String name =  cookie.getName();
+					              String value = cookie.getValue();
+					              if(name.equals("cookie_id")){
+					            	  userID = Integer.parseInt(value);
+					              }
+					           }
+					        }
+					        out.print(userID);
 							
-							String IDtoString = String.valueOf(id);
-							// Create cookies for first and last names.      
-							Cookie cookie_id = new Cookie("cookie_id",IDtoString );
-							cookie_id.setMaxAge(60*60*24); 
-							response.addCookie( cookie_id );
+							
 							%>
                     	</p>
                         <a class="btn btn-primary btn-lg" href="http://localhost:8080/B_Bay/AboutFolder/AboutDeveloper.jsp">Learn About The Developer!</a>
                     </div>
-                </div>
+                </div>	
             </div>
         </header>
         <!-- Page Content-->

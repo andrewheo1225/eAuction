@@ -64,7 +64,7 @@
 									 </div>
 									  
 								</div>
-						
+						<div class="table-responsive">
 							<table border = '1' class="table table-striped table-hover">
 								<tr>    
 									<td>auctionID</td>
@@ -110,6 +110,7 @@
 									
 									%>
 						</table>
+						</div>
 						
 						
 						
@@ -127,7 +128,7 @@
  
 
  <!-- Footer-->
-        <footer style = "min-height: 100vh;" class="py-5 bg-dark">
+        <footer style = "min-height: 85vh;" class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; eAuction 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->

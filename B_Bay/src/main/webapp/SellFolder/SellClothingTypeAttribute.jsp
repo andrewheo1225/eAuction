@@ -91,13 +91,18 @@
 					<div class="col">
 						 <button type="submit" class="btn btn-primary">Submit</button>
 					</div>
+				  	
+				</div>
+				
+			</form>
+			<div style= "margin:15px 0px;" class="row">
+					
 				  	<div class="col">
 				  		<a href="http://localhost:8080/B_Bay/Home.jsp">
 							<button>Go To Home</button>
 						</a>
 				  	</div>
 				</div>
-			</form>
 		<% 
 		}else if(clothingType.equals("Shirt")){
 			%>
@@ -150,13 +155,18 @@
 					<div class="col">
 						 <button type="submit" class="btn btn-primary">Submit</button>
 					</div>
+				  	
+				</div>
+				
+			</form>
+			<div style= "margin:15px 0px;" class="row">
+					
 				  	<div class="col">
 				  		<a href="http://localhost:8080/B_Bay/Home.jsp">
 							<button>Go To Home</button>
 						</a>
 				  	</div>
 				</div>
-			</form>
 			
 	
 		<% 
@@ -207,17 +217,22 @@
 			  		</select>
 			  		
 			  	
-			  	<div style= "margin:15px 0px;" class="row">
+			  <div style= "margin:15px 0px;" class="row">
 					<div class="col">
 						 <button type="submit" class="btn btn-primary">Submit</button>
 					</div>
+				  	
+				</div>
+				
+			</form>
+			<div style= "margin:15px 0px;" class="row">
+					
 				  	<div class="col">
 				  		<a href="http://localhost:8080/B_Bay/Home.jsp">
 							<button>Go To Home</button>
 						</a>
 				  	</div>
 				</div>
-			</form>
 			
 		<% 
 		}
@@ -227,7 +242,7 @@
 %>
 
  <!-- Footer-->
-        <footer style = "min-height: 100vh;" class="py-5 bg-dark">
+        <footer style = "min-height: 25vh;" class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; eAuction 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->

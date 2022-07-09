@@ -23,6 +23,8 @@
 		
 		HttpSession sess = request.getSession();
 		
+		
+		
 		int userID = 0;
 	
 		  if(rs.next()){ //if there is a matching userName
@@ -49,7 +51,13 @@
 		         	session.setAttribute("user", fname);
 		         	session.setAttribute("pass", userPass);
 		         
-		    		sess.setAttribute("userID", userID);
+		    		//sess.setAttribute("userID", userID);
+		    		
+		    		String IDtoString = String.valueOf(userID);
+					// Create cookies for first and last names.      
+					Cookie cookie_id = new Cookie("cookie_id",IDtoString );
+					cookie_id.setMaxAge(60*60*24); 
+					response.addCookie( cookie_id );
 		         	
 					response.sendRedirect("http://localhost:8080/B_Bay/Home.jsp");
 				}else{ //pass does not match db's pass
